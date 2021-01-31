@@ -1,4 +1,4 @@
-package main
+package mp_getlist
 
 import (
 	"flag"
@@ -40,14 +40,14 @@ func main() {
 	for iter.HasNext() {
 		openids, err := iter.NextPage()
 		if err != nil {
-			fmt.Printf("new iterator next page failed, err:%v", err)
+			fmt.Printf("new iterator next page failed, err:%v\n", err)
 			return
 		}
 		result = append(result, openids...)
 	}
 
-	fmt.Printf("get total user list num:%d",len(result))
+	fmt.Printf("get total user list num:%d\n",len(result))
 	for i := 0;i < len(result);i ++ {
-		fmt.Printf("[%d] : %s\n",result[i])
+		fmt.Printf("[%d] : %s\n",i, result[i])
 	}
 }
